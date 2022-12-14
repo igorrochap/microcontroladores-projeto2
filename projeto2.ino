@@ -41,7 +41,6 @@ void loop()
 void getTemperature() {
   sensor = analogRead(A0);
   voltage = sensor * (5000 / 1024.0);
-  Serial.println(voltage);
   temp = voltage / 10;
 }
 
