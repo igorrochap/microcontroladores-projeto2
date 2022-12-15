@@ -67,12 +67,12 @@ void filterTemperature() {
     nextRunningAverage = 0; 
   }
 
-  for(int i=0; i < runningAverageCount; ++i)
+  for(int i = 0; i < runningAverageCount; ++i)
   {
     filteredTemp += runningAverageBuffer[i];
   }
 
-  filteredTemp /= runningAverageCount;
+  filteredTemp = filteredTemp/runningAverageCount;
 }
 
 void controlRPM() {
