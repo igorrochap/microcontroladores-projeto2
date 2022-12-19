@@ -10,8 +10,8 @@
 LiquidCrystal_I2C lcd(0x27, 2, 1, 0, 4, 5, 6, 7, 3, POSITIVE);
 
 const int pwm = 9;
-const int minSensor = -550;
-const int maxSensor = 1500;
+const int minSensor = -55;
+const int maxSensor = 150;
 const int variationCutoff = 100;
 const int runningAverageCount = 50;
 int nextRunningAverage;
@@ -78,7 +78,7 @@ void filterTemperature() {
 void controlRPM() {
   rpm = 0;
   if(filteredTemp >= 20) {
-    rpm = map(voltage, minSensor, maxSensor, 0, 255);
+    rpm = map(filteredTemp, minSensor, maxSensor, 0, 255);
   } 
   if (filteredTemp >= 60) {
     rpm = 255;
